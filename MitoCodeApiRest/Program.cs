@@ -24,7 +24,9 @@ app.MapGet("api/Personas", () =>
 {
     Results.Ok(new List<Persona>()
     {
-        new() { Id = 1, Nombre = "Erick" }
+        new() { Id = 1, Nombre = "Erick" },
+        new() { Id = 2, Nombre = "Adam" },
+        new() { Id = 3, Nombre = "Roxana" },
     });
 });
 
