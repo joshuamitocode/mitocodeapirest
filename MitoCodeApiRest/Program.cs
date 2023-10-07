@@ -1,3 +1,5 @@
+using MitoCodeApiRest.Entidades;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -17,6 +19,16 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseAuthorization();
+
+app.MapGet("api/Personas", () =>
+{
+    Results.Ok(new List<Persona>()
+    {
+        new() { Id = 1, Nombre = "Erick" },
+        new() { Id = 2, Nombre = "Adam" },
+        new() { Id = 3, Nombre = "Roxana" },
+    });
+});
 
 app.MapControllers();
 
