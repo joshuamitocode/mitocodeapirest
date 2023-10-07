@@ -1,9 +1,15 @@
+using Microsoft.EntityFrameworkCore;
+using MitoCodeApiRest.Data;
 using MitoCodeApiRest.Entidades;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // un simple cambio
+builder.Services.AddDbContext<MitoCodeDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("MitoCodeConexion"));
+});
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
