@@ -27,12 +27,10 @@ if (app.Environment.IsDevelopment())
 
 app.UseAuthorization();
 
-app.MapGet("api/Personas", () => Results.Ok(new List<Persona>()
+app.MapGet("api/Personas", (MitoCodeDbContext context) =>
 {
-    new() { Id = 1, Nombre = "Erick" },
-    new() { Id = 2, Nombre = "Adam" },
-    new() { Id = 3, Nombre = "Roxana" },
-}));
+    return Results.Ok(context.Personas.ToList());
+});
 
 app.MapControllers();
 
