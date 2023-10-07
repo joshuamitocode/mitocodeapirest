@@ -3,6 +3,7 @@ using MitoCodeApiRest.Entidades;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+// un simple cambio
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
