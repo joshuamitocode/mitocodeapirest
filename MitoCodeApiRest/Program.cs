@@ -1,8 +1,15 @@
+using Microsoft.EntityFrameworkCore;
+using MitoCodeApiRest.Data;
 using MitoCodeApiRest.Entidades;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+// un simple cambio
+builder.Services.AddDbContext<MitoCodeDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("MitoCodeConexion"));
+});
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -20,12 +27,10 @@ if (app.Environment.IsDevelopment())
 
 app.UseAuthorization();
 
-app.MapGet("api/Personas", () => Results.Ok(new List<Persona>()
+app.MapGet("api/Personas", (MitoCodeDbContext context) =>
 {
-    new() { Id = 1, Nombre = "Erick" },
-    new() { Id = 2, Nombre = "Adam" },
-    new() { Id = 3, Nombre = "Roxana" },
-}));
+    return Results.Ok(context.Personas.ToList());
+});
 
 app.MapControllers();
 
