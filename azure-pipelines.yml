@@ -32,7 +32,14 @@ jobs:
           command: 'test'
           projects: '**/*.Tests.csproj'
           testRunTitle: 'Correr pruebas'
+      - task: DotNetCoreCLI@2
+        displayName: Empaquetar aplicacion
+        inputs:
+          command: 'publish'
+          publishWebProjects: true
+          arguments: '--no-build'
       - task: AzureRmWebAppDeployment@4
+        displayName: Publicar en Azure
         inputs:
           ConnectionType: 'AzureRM'
           azureSubscription: 'Azure subscription 1(02ac2a8f-e62a-40b2-8710-5c95474ff9eb)'
