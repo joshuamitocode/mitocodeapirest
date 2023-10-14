@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using MitoCodeApiRest;
 using MitoCodeApiRest.Data;
 using MitoCodeApiRest.Entidades;
 
@@ -10,6 +11,8 @@ builder.Services.AddDbContext<MitoCodeDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("MitoCodeConexion"));
 });
+
+builder.Services.AddTransient<IPersonaRepository, PersonaRepository>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -27,11 +30,9 @@ if (app.Environment.IsDevelopment())
 
 app.UseAuthorization();
 
-app.MapGet("api/Personas", (MitoCodeDbContext context) =>
+app.MapGet("api/Personas", async (IPersonaRepository repository) =>
 {
-    var personas = context.Personas
-        .AsNoTracking()
-        .ToList();
+    var personas = await repository.ListAsync();
     
     return Results.Ok(new
     {
