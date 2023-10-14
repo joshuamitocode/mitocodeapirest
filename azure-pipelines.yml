@@ -7,7 +7,8 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
+  name: dagobah
+  vmImage: windows-latest
 
 jobs:
   - job: RestoreAndBuild
@@ -45,5 +46,3 @@ jobs:
           appType: 'webAppLinux'
           WebAppName: 'mitocodeapirest'
           packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
-          ConfigurationSettings: '-MitoCodeConexion $(MitoCodeConexion)'
-
