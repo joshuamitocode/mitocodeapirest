@@ -11,10 +11,10 @@ pool:
 
 jobs:
   - job: RestoreAndBuild
-    displayName: Restuarar, compilar y probar
+    displayName: Restaurar, compilar y probar
     steps:
       - task: DotNetCoreCLI@2
-        displayName: Restuarar
+        displayName: Restaurar
         inputs:
           command: 'restore'
           projects: '**/*.csproj'
