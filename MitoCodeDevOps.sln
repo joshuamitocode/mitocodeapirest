@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Miscelanea", "Miscelanea", 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MitoCodeApiRest.Tests", "MitoCodeApiRest.Tests\MitoCodeApiRest.Tests.csproj", "{BBEB0A50-B51E-4786-8A0F-5DA4B3A06DC0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,10 @@ Global
 		{150ABBA7-5384-4CEE-883B-6638B690847A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{150ABBA7-5384-4CEE-883B-6638B690847A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{150ABBA7-5384-4CEE-883B-6638B690847A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBEB0A50-B51E-4786-8A0F-5DA4B3A06DC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBEB0A50-B51E-4786-8A0F-5DA4B3A06DC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBEB0A50-B51E-4786-8A0F-5DA4B3A06DC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBEB0A50-B51E-4786-8A0F-5DA4B3A06DC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
