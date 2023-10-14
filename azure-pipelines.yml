@@ -14,14 +14,17 @@ jobs:
     displayName: Restuarar, compilar y probar
     steps:
       - task: DotNetCoreCLI@2
+        displayName: Restuarar
         inputs:
           command: 'restore'
           projects: '**/*.csproj'
           feedsToUse: 'select'
           vstsFeed: '3e86a18e-412a-426e-a068-8c0896393cb1'
       - task: DotNetCoreCLI@2
+        displayName: Compilar
         inputs:
           command: 'build'
+          arguments: '--no-restore'
           projects: '**/*.csproj'
       - task: DotNetCoreCLI@2
         displayName: Ejecutar pruebas unitarias
