@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  name: dagobah
+  name: DAGOBAH
   vmImage: windows-latest
 
 jobs:
