@@ -32,3 +32,10 @@ jobs:
           command: 'test'
           projects: '**/*.Tests.csproj'
           testRunTitle: 'Correr pruebas'
+      - task: AzureRmWebAppDeployment@4
+        inputs:
+          ConnectionType: 'AzureRM'
+          azureSubscription: 'Azure subscription 1(02ac2a8f-e62a-40b2-8710-5c95474ff9eb)'
+          appType: 'webAppLinux'
+          WebAppName: 'mitocodeapirest'
+          packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
