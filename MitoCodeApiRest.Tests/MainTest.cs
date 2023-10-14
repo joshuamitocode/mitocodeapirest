@@ -11,6 +11,7 @@ public class MainTest
     [InlineData(5,7,12)]
     [InlineData(1,1,2)]
     [InlineData(3,5,8)]
+    [InlineData(3,9,12)]
     public void SumaTest(int a, int b, int expected)
     {
         var actual = a + b;
