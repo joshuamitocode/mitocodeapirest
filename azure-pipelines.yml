@@ -10,8 +10,8 @@ pool:
   vmImage: ubuntu-latest
 
 jobs:
-  - job: Restore
-    displayName: Restaurar paquetes Nuget
+  - job: RestoreAndBuild
+    displayName: Restuarar, compilar y probar
     steps:
       - task: DotNetCoreCLI@2
         inputs:
@@ -19,10 +19,13 @@ jobs:
           projects: '**/*.csproj'
           feedsToUse: 'select'
           vstsFeed: '3e86a18e-412a-426e-a068-8c0896393cb1'
-  - job: Build
-    displayName: Compilar proyecto
-    steps:
       - task: DotNetCoreCLI@2
         inputs:
           command: 'build'
           projects: '**/*.csproj'
+      - task: DotNetCoreCLI@2
+        displayName: Ejecutar pruebas unitarias
+        inputs:
+          command: 'test'
+          projects: '**/*.Tests.csproj'
+          testRunTitle: 'Correr pruebas'
