@@ -29,7 +29,15 @@ app.UseAuthorization();
 
 app.MapGet("api/Personas", (MitoCodeDbContext context) =>
 {
-    return Results.Ok(context.Personas.ToList());
+    var personas = context.Personas
+        .AsNoTracking()
+        .ToList();
+    
+    return Results.Ok(new
+    {
+        Data = personas,
+        Success = true
+    });
 });
 
 app.MapControllers();
