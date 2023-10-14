@@ -5,14 +5,14 @@ namespace MitoCodeApiRest.Tests;
 
 public class MainTest
 {
-    [Fact]
-    public void SumaTest()
+    [Theory]
+    [InlineData(5,6,11)]
+    [InlineData(5,5,11)]
+    [InlineData(5,7,12)]
+    [InlineData(1,1,2)]
+    [InlineData(3,5,8)]
+    public void SumaTest(int a, int b, int expected)
     {
-        var a = 5;
-        var b = 6;
-
-        var expected = 11;
-
         var actual = a + b;
 
         Assert.Equal(expected, actual);
