@@ -33,13 +33,18 @@ app.UseAuthorization();
 app.MapGet("api/Personas", async (IPersonaRepository repository) =>
 {
     var personas = await repository.ListAsync();
-    
+
     return Results.Ok(new
     {
         Data = personas,
         Success = true
     });
 });
+
+app.MapGet("api/Variable", () => Results.Ok(new
+{
+    Entorno = builder.Configuration.GetValue<string>("Entorno")
+}));
 
 app.MapControllers();
 
