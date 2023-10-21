@@ -2,6 +2,8 @@
 
 Este curso tiene por objetivo aprender todo lo que se necesita de Azure Devops y Azure Repos
 
+[![Azure Pipelines](https://vsrm.dev.azure.com/joshuarosev/_apis/public/Release/badge/cb5173c6-decf-421f-b8fe-c3f34d41deec/1/1)]
+
 # Azure Repos
 Este es un archivo modificado por mi otro yo
 
