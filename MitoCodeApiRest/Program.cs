@@ -1,7 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using MitoCodeApiRest;
 using MitoCodeApiRest.Data;
-using MitoCodeApiRest.Entidades;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,7 +24,7 @@ var app = builder.Build();
 // if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c => c.DocumentTitle = "API REST v1.0");
 }
 
 app.UseAuthorization();
