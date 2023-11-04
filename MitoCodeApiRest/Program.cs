@@ -45,6 +45,8 @@ app.MapGet("api/Variable", () => Results.Ok(new
     Entorno = builder.Configuration.GetValue<string>("Entorno")
 }));
 
+app.MapGet("api/endpointbasico", () => Results.Ok(new { Mensaje = "Este es un api rest corriendo en la nube"}));
+
 app.MapControllers();
 
 app.Run();
